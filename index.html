@@ -22,6 +22,7 @@
         <input type="number" id="peso"> <br>
 
         <button onclick="calcularImc()">Calcular IMC</button>
+        <button onclick="limpar()">Limpar</button>
 
         <div class="result" id="result"></div>
 
@@ -94,6 +95,13 @@
 
             result.innerHTML = `Seu IMC é ${imc.toFixed(2)} (${classificacao}).`;
         
+    }
+
+    function limpar() {
+
+        document.getElementById('result').innerHTML = "";
+        document.getElementById('altura').innerHTML = "";
+        document.getElementById('peso').innerHTML = "";
     }
 </script>
 
