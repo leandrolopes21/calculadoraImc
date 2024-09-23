@@ -45,7 +45,7 @@ div.bloco > button {
 
 div.bloco > div#result {
     background-color: #3AFC71;
-    font-size: bold;
+    font-weight: bold;
     margin: 10px auto;
     width: 80%;
     height: 40px;
