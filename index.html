@@ -26,6 +26,8 @@
 
         <div class="result" id="result"></div>
 
+        <div class="info" id="info"></div>
+
     </div>
 
     <div id="conteiner">
@@ -71,6 +73,7 @@
         const altura = parseFloat(document.getElementById('altura').value);
         const peso = parseFloat(document.getElementById('peso').value);
         const result = document.getElementById('result');
+        const info = document.getElementById('info');
 
         if (isNaN(altura) || isNaN(peso)) {
 
@@ -80,28 +83,36 @@
 
             const imc = peso / (altura * altura);
             var classificacao = '';
+            var dica = '';
 
             if ( imc < 18.5) {
                 classificacao = 'Magreza';
+                dica = 'Por favor, melhorar a alimentação e buscar seu peso ideal.';
             } else if ( imc < 24.9) {
                 classificacao = 'Normal';
+                dica = 'Ótimo!';
             } else if ( imc <29.9) {
                 classificacao = 'Sobrepeso';
+                dica = 'Por favor, treinar mais, melhorar a alimentação e buscar seu peso ideal.';
             } else if ( imc <39.9) {
                 classificacao = 'Obesidade';
+                dica = 'Este nível é crítico, busque se cuidar mais.';
             } else {
                 classificacao = 'Obesidade Grave';
+                dica = 'Atenção, procure um nutricionista com urgência!';
             }
 
             result.innerHTML = `Seu IMC é ${imc.toFixed(2)} (${classificacao}).`;
+
+            info.innerHTML = `${dica}`;
         
     }
 
     function limpar() {
 
         document.getElementById('result').innerHTML = "";
-        /* document.getElementById('altura').innerHTML = "";
-        document.getElementById('peso').innerHTML = "";*/
+        document.getElementById('info').innerHTML = "";
+        /*document.getElementById('peso').innerHTML = "";*/
     }
 </script>
 
