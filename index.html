@@ -21,16 +21,12 @@
         <label for="peso">Digite seu peso (Kg)</label> <br>
         <input type="number" id="peso"> <br>
 
-        <input type="submit" value="Calcular IMC" class="calc">
+        <button onclick="calcularImc()">Calcular IMC</button>
+        <button onclick="limpar()">Limpar</button>
 
-        <!-- <button onclick="calcularImc()">Calcular IMC</button> -->
+        <div class="result" id="result"></div>
 
-        <!-- <button onclick="limpar()">Limpar</button> -->
-
-        <div class="valores">
-            <p class="result" id="result"></p>
-            <p class="info" id="info"></p>
-        </div>
+        <div class="info" id="info"></div>
 
     </div>
 
@@ -43,27 +39,27 @@
             </tr>
             <tr>
                 <td>Menor que 18,5</td>
-                <td id="magreza">Magreza</td>
+                <td>Magreza</td>
                 <td>0</td>
             </tr>
             <tr>
                 <td>Entre 18,5 e 24,9</td>
-                <td id="normal">Normal</td>
+                <td>Normal</td>
                 <td>0</td>
             </tr>
             <tr>
                 <td>Entre 25,0 e 29,9</td>
-                <td id="sobrepeso">Sobrepeso</td>
+                <td>Sobrepeso</td>
                 <td>I</td>
             </tr>
             <tr>
                 <td>Entre 30,0 e 39,9</td>
-                <td id="obesidade">Obesidade</td>
+                <td>Obesidade</td>
                 <td>II</td>
             </tr>
             <tr>
                 <td>Maior que 40,0</td>
-                <td id="obesidadegr">Obesidade Grave</td>
+                <td>Obesidade Grave</td>
                 <td>III</td>
             </tr>
         </table>
@@ -71,10 +67,6 @@
 </body>
 
 <script>
-
-    var calc = document.querySelector('.calc');
-
-    var botaoReset;
     
     function calcularImc() {
 
@@ -96,74 +88,32 @@
             if ( imc < 18.5) {
                 classificacao = 'Magreza';
                 dica = 'Por favor, melhorar a alimentação e buscar seu peso ideal.';
-                document.getElementById('magreza').style.backgroundColor = "#F04438";
             } else if ( imc < 24.9) {
                 classificacao = 'Normal';
                 dica = 'Ótimo!';
-                document.getElementById('normal').style.backgroundColor = "#3BED9A";
             } else if ( imc <29.9) {
                 classificacao = 'Sobrepeso';
                 dica = 'Por favor, treinar mais, melhorar a alimentação e buscar seu peso ideal.';
-                document.getElementById('sobrepeso').style.backgroundColor = "#DD16F0";
             } else if ( imc <39.9) {
                 classificacao = 'Obesidade';
                 dica = 'Este nível é crítico, busque se cuidar mais.';
-                document.getElementById('obesidade').style.backgroundColor = "#8537F0";
             } else {
                 classificacao = 'Obesidade Grave';
                 dica = 'Atenção, procure um nutricionista com urgência!';
-                document.getElementById('obesidadegr').style.backgroundColor = "black";
-                document.getElementById('obesidadegr').style.color = "white";
             }
 
-            result.innerHTML = ("Seu IMC é " + imc.toFixed(1) + " " + classificacao);
+            result.innerHTML = `Seu IMC é ${imc.toFixed(1)} (${classificacao}).`;
 
-            info.innerHTML = dica;
-
-            /* result.innerHTML = `Seu IMC é ${imc.toFixed(1)} (${classificacao}).`;
-
-            info.innerHTML = `${dica}`; */
+            info.innerHTML = `${dica}`;
         
-    }
-    
-    calc.addEventListener("click", calcularImc);
-    calc.addEventListener("click", resetDados);
-
-    function resetDados() {
-
-        altura.disabled = true; // Desabilita o campo altura
-        peso.disabled = true; // Desabilita o campo peso
-        calc.disabled = true;
-
-        /* var body = document.getElementById("reset"); */
-
-        botaoReset = document.createElement("button"); // Cria um botão
-
-        botaoReset.textContent = "Reset"; // Insere o nome "Novo" ao botão
-        document.body.appendChild(botaoReset); // Insere o botão ao final do body
-        botaoReset.addEventListener("click", limpar); // Adiciona o evento de clique ao botão
-
     }
 
     function limpar() {
 
-        var reiniciarTabela = document.querySelectorAll(".conteiner td");
-        for (var i = 0; i < reiniciarTabela.length; i++) {
-              reiniciarTabela[i].textContent = "";
-            }
-
-        botaoReset.parentNode.removeChild(botaoReset);
-
-        document.getElementById('result').innerHTML = ""; // Limpa o valor gerado pelo resultado
-        document.getElementById('info').innerHTML = ""; // Limpa o valor gerado pelo resultado
-        altura.disabled = false; // Habilita o campo altura
-        peso.disabled = false; // Habilita o campo peso
-        calc.disabled = false; // Habilita o botão para calcular IMC
-        peso.value = ""; // Limpa o valor digitado pelo usuário
-        altura.value = ""; // Limpa o valor digitado pelo usuário
-        altura.focus();
+        document.getElementById('result').innerHTML = "";
+        document.getElementById('info').innerHTML = "";
+        /*document.getElementById('peso').innerHTML = "";*/
     }
-
 </script>
 
 </html>

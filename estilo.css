@@ -30,28 +30,27 @@ div.bloco {
 
 div.bloco > input {
     margin: 5px;
-    width: 40%;
+    width: 55%;
     height: 25px;
     border-radius: 5px;
 }
 
-div.bloco > input.calc {
+div.bloco > button {
     margin: 10px;
-    width: 40%;
+    width: 50%;
     height: 25px;
     border-radius: 5px;
     cursor: pointer;
 }
 
 div.bloco > div#result {
-    background-color: #59939d;
-    color: black;
+    background-color: #befccf;
     font-weight: bold;
     margin: 10px auto;
     width: 90%;
     height: 30px;
-    /* border: 1px solid black; */
-    /* border-radius: 5px; */
+    border: 1px solid black;
+    border-radius: 5px;
 
     display: flex;
     justify-content: center;
@@ -59,32 +58,23 @@ div.bloco > div#result {
 }
 
 div.bloco > div#info {
-    background-color: #59939d;
+    background-color: white;
     font-weight: bold;
     margin: 10px auto;
     width: 90%;
     height: 50px;
-    /* border: 1px solid black;
-    border-radius: 5px; */
+    border: 1px solid black;
+    border-radius: 5px;
     
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-button {
-    background-color: bisque;
-    width: 400px;
-    margin: 5px;
-    padding: 5px;
-    font-weight: bolder;
-    border-radius: 10px;
-}
-
 table {
 
     border-collapse: collapse; /* Retira o espaçamento interno entre bordas */
-    margin-top: 5px;
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
 }
